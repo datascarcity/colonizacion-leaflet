@@ -31,10 +31,12 @@
 		id: 'mapbox.streets'
 	}).addTo(mymap);
 
-var embalses = new L.GeoJSON.AJAX("https://api.myjson.com/bins/qfwh1");
+//var embalses = new L.GeoJSON.AJAX("https://api.myjson.com/bins/qfwh1");
+var embalses = new L.GeoJSON.AJAX("/data/embalses.geojson");
 embalses.addTo(mymap);
 
-var zonas = new L.GeoJSON.AJAX("https://api.myjson.com/bins/1ewtfp");
+//var zonas = new L.GeoJSON.AJAX("https://api.myjson.com/bins/1ewtfp");
+var zonas = new L.GeoJSON.AJAX("/data/zonas.geojson");
 zonas.addTo(mymap);
 
 var coloniaspenit = new L.GeoJSON.AJAX("/data/coloniaspenit.geojson");
