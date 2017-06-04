@@ -34,14 +34,15 @@
 var embalses = new L.GeoJSON.AJAX("https://api.myjson.com/bins/qfwh1");
 embalses.addTo(mymap);
 
-var myZonas = {
-    "color": "#ff7800",
-    "weight": 5,
-    "opacity": 0.65
-}; 
-
 var zonas = new L.GeoJSON.AJAX("https://api.myjson.com/bins/1ewtfp");
 zonas.addTo(mymap);
+
+var coloniaspenit = new L.GeoJSON.AJAX("/data/coloniaspenit.geojson");
+coloniaspenit.addTo(mymap);
+
+var pobladoscol = new L.GeoJSON.AJAX("/data/pobladoscol.geojson");
+pobladoscol.addTo(mymap);
+
 </script>
 
 </body>
