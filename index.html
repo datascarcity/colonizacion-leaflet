@@ -34,7 +34,7 @@
 	}).addTo(mymap);
 
 $.getJSON("data/embalses.geojson", function(data){
-	LgeoJson(data).addTo(mymap)
+	L.geoJson(data).addTo(mymap)
 });
 
 </script>
