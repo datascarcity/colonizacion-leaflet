@@ -12,6 +12,8 @@
 
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
     <script src="js/leaflet.ajax.min.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+
 	
 </head>
 <body>
@@ -31,20 +33,9 @@
 		id: 'mapbox.streets'
 	}).addTo(mymap);
 
-//var embalses = new L.GeoJSON.AJAX("https://api.myjson.com/bins/qfwh1");
-var embalses_ob = new L.GeoJSON.AJAX("data/embalses.geojson");
-L.geoJSON(embalses_ob).addTo(mymap)
-//var layer = L.geoJson(embalses_ob).addTo(mymap)
-
-//var zonas = new L.GeoJSON.AJAX("https://api.myjson.com/bins/1ewtfp");
-//var zonas = new L.GeoJSON.AJAX("data/zonas.geojson");
-//zonas.addTo(mymap);
-
-//var coloniaspenit = new L.GeoJSON.AJAX("data/coloniaspenit.geojson");
-//coloniaspenit.addTo(mymap);
-
-//var pobladoscol = new L.GeoJSON.AJAX("data/pobladoscol.geojson");
-//pobladoscol.addTo(mymap);
+$.getJSON("data/embalses.geojson, function(data){
+	LgeoJson(data).addTo(mymap)
+});
 
 </script>
 
