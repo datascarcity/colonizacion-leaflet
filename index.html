@@ -33,7 +33,7 @@
 		id: 'mapbox.streets'
 	}).addTo(mymap);
 
-$.getJSON("data/embalses.geojson, function(data){
+$.getJSON("data/embalses.geojson", function(data){
 	LgeoJson(data).addTo(mymap)
 });
 
