@@ -64,11 +64,8 @@ $.getJSON("data/embalses.geojson", function(emb_data){
 	L.geoJson(emb_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, emb_style);
-		},
-		onEachFeature: function (feature, layer){
-		layer.bindPopup( "<strong> Nombre: " + feature.properties.Nombre de + "</strong><br/>")
-	}
-} ).addTo(mymap);
+		}
+	}).addTo(mymap);
 });
 
 $.getJSON("data/coloniaspenit.geojson", function(col_data){
