@@ -47,6 +47,7 @@ $.getJSON("data/pobladoscol.geojson", function(pob_data){
 
 $.getJSON("data/zonas.geojson", function(zon_data){
 	L.geoJson(zon_data),{
+		style: function(feature){
 		var fillColor,
 			type = feature.properties.Tipo;
 		if (Tipo == "A") fillColor = "#006837";
