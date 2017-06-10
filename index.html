@@ -32,7 +32,7 @@
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		id: 'mapbox.streets'
 	}).addTo(mymap);
-
+/*
 $.getJSON("data/embalses.geojson", function(emb_data){
 	L.geoJson(emb_data).addTo(mymap);
 });
@@ -44,20 +44,20 @@ $.getJSON("data/coloniaspenit.geojson", function(col_data){
 $.getJSON("data/pobladoscol.geojson", function(pob_data){
 	L.geoJson(pob_data).addTo(mymap);
 });
-
+*/
 $.getJSON("data/zonas.geojson", function(zon_data){
 	L.geoJson(zon_data,{
 		style: function(feature){
 		var fillColor,
 			type = feature.properties.Tipo;
-		if (type == "A") fillColor = "#006837";
-		else if (type == "B") fillColor = "#31a354";
-		else if (type == "C") fillColor = "#78c679";
+		if (type == "A") fillColor = "#ca0020";
+		else if (type == "B") fillColor = "#92c5de";
+		else if (type == "C") fillColor = "#0571b0";
 		else fillColor = "#f7f7f7"; //no data
 		return { color: "#999", weight: 1, fillColor: fillColor, fillOpacity: .6};
 	},
 	onEachFeature: function (feature, layer){
-		layer.bindPopup( "<strong>" + feature.properties.Nombre + "</strong><br/>")
+		layer.bindPopup( "<strong>" + feature.properties.Nombre + "</strong><br/>" + ", " feature.properties.D_Tipo + ", " + feature.properties.D_Estado)
 	}
 } ).addTo(mymap);
 });
