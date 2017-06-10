@@ -59,7 +59,7 @@ $.getJSON("data/zonas.geojson", function(zon_data){
 	onEachFeature: function (feature, layer){
 		layer.bindPopup( "<strong>" + feature.properties.Nombre + "</strong><br/>")
 	}
-}).addTo(mymap);
+} ).addTo(mymap);
 });
 </script>
 
