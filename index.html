@@ -34,10 +34,28 @@
 	}).addTo(mymap);
 
 var emb_style = {
-    radius: 8,
-    fillColor: "#ff7800",
+    radius: 2,
+    fillColor: "#e0f3db",
     color: "#000",
-    weight: 1,
+    weight: 0,
+    opacity: 1,
+    fillOpacity: 0.8
+};
+
+var col_style = {
+    radius: 2,
+    fillColor: "#a8ddb5",
+    color: "#000",
+    weight: 0,
+    opacity: 1,
+    fillOpacity: 0.8
+};
+
+var pob_style = {
+    radius: 2,
+    fillColor: "#43a2ca",
+    color: "#000",
+    weight: 0,
     opacity: 1,
     fillOpacity: 0.8
 };
@@ -49,15 +67,23 @@ $.getJSON("data/embalses.geojson", function(emb_data){
 		}
 	}).addTo(mymap);
 });
-/*
+
 $.getJSON("data/coloniaspenit.geojson", function(col_data){
-	L.geoJson(col_data).addTo(mymap);
+	L.geoJson(col_data, {
+		pointToLayer: function (feature, latlng) {
+			return L.circleMarker(latlng, col_style);
+		}
+	}).addTo(mymap);
 });
 
 $.getJSON("data/pobladoscol.geojson", function(pob_data){
-	L.geoJson(pob_data).addTo(mymap);
+	L.geoJson(pob_data, {
+		pointToLayer: function (feature, latlng) {
+			return L.circleMarker(latlng, pob_style);
+		}
+	}).addTo(mymap);
 });
-*/
+
 $.getJSON("data/zonas.geojson", function(zon_data){
 	L.geoJson(zon_data,{
 		style: function(feature){
@@ -67,7 +93,7 @@ $.getJSON("data/zonas.geojson", function(zon_data){
 		else if (type == "B") fillColor = "#92c5de";
 		else if (type == "C") fillColor = "#0571b0";
 		else fillColor = "#f7f7f7"; //no data
-		return { color: "#999", weight: 1, fillColor: fillColor, fillOpacity: .6};
+		return { color: "#999", weight: 0, fillColor: fillColor, fillOpacity: .6};
 	},
 	onEachFeature: function (feature, layer){
 		layer.bindPopup( "<strong> Nombre: " + feature.properties.Nombre + "</strong><br/>" + "<strong> Tipo: </strong>" + feature.properties.D_Tipo + "<br/>" + "<strong> Estado: </strong>" +feature.properties.D_Estado)
