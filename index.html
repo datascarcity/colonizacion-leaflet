@@ -32,7 +32,7 @@
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		id: 'mapbox.streets'
 	}).addTo(mymap);
-/*
+
 $.getJSON("data/embalses.geojson", function(emb_data){
 	L.geoJson(emb_data).addTo(mymap);
 });
@@ -44,7 +44,7 @@ $.getJSON("data/coloniaspenit.geojson", function(col_data){
 $.getJSON("data/pobladoscol.geojson", function(pob_data){
 	L.geoJson(pob_data).addTo(mymap);
 });
-*/
+
 $.getJSON("data/zonas.geojson", function(zon_data){
 	L.geoJson(zon_data,{
 		style: function(feature){
