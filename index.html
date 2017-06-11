@@ -14,16 +14,27 @@
     <script src="js/leaflet.ajax.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
 
+	<style>
+		#map {
+			width: 100%;
+			height: 90vh;
+		}
+	</style>
+
+	<style>#map { width: 800px; height: 500px; }
+.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }</style>
+
 	
 </head>
 <body>
 
 
 
-<div id="mapid" style="width: 100%; height: 90vh;"></div>
+<div id='map'></div>
 <script>
 
-	var mymap = L.map('mapid').setView([40.4168, -3.7038], 6);
+	var mymap = L.map('map').setView([40.4168, -3.7038], 6);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidXJiYW5vdmlpaSIsImEiOiJjaWxmODU2ODIwMDJ5dmxsejRva3FyaWU0In0.xUle2zZJMfYkhXdZUsrlqQ', {
 		maxZoom: 11,
@@ -35,7 +46,7 @@
 
 var emb_style = {
     radius: 4,
-    fillColor: "#e0f3db",
+    fillColor: "#2b8cbe",
     color: "#000",
     weight: 0,
     opacity: 1,
@@ -44,7 +55,7 @@ var emb_style = {
 
 var col_style = {
     radius: 4,
-    fillColor: "#a8ddb5",
+    fillColor: "#fdbb84",
     color: "#000",
     weight: 0,
     opacity: 1,
@@ -53,7 +64,7 @@ var col_style = {
 
 var pob_style = {
     radius: 4,
-    fillColor: "#43a2ca",
+    fillColor: "#e34a33",
     color: "#000",
     weight: 0,
     opacity: 1,
@@ -89,9 +100,9 @@ $.getJSON("data/zonas.geojson", function(zon_data){
 		style: function(feature){
 		var fillColor,
 			type = feature.properties.Tipo;
-		if (type == "A") fillColor = "#ca0020";
-		else if (type == "B") fillColor = "#92c5de";
-		else if (type == "C") fillColor = "#0571b0";
+		if (type == "A") fillColor = "#e5f5e0";
+		else if (type == "B") fillColor = "#a1d99b";
+		else if (type == "C") fillColor = "#31a354";
 		else fillColor = "#f7f7f7"; //no data
 		return { color: "#999", weight: 0, fillColor: fillColor, fillOpacity: .6};
 	},
@@ -100,6 +111,17 @@ $.getJSON("data/zonas.geojson", function(zon_data){
 	}
 } ).addTo(mymap);
 });
+
+var legend = L.control({position: 'bottomright'});
+legend.onAdd = function (mymap) {
+	 var div = L.DomUtil.create('div', 'info legend');
+	 div.innerHTML = 'test prueba'
+
+	 return div;        
+
+};
+legend-addTo(mymap);
+
 </script>
 
 </body>
