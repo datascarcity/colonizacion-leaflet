@@ -33,8 +33,12 @@
 
 <div id='map'></div>
 <script>
-
-	var mymap = L.map('map').setView([40.4168, -3.7038], 6,scrollWheelZoom: false);
+//.setView([40.4168, -3.7038], 6, scrollWheelZoom: false)
+	var mymap = L.map('map', {
+		center:[40.4168, -3.7038],
+		zoom: 6,
+		scrollWheelZoom: false
+	});
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidXJiYW5vdmlpaSIsImEiOiJjaWxmODU2ODIwMDJ5dmxsejRva3FyaWU0In0.xUle2zZJMfYkhXdZUsrlqQ', {
 		maxZoom: 9,
