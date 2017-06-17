@@ -89,7 +89,7 @@ var pob_style = {
     opacity: 1,
     fillOpacity: 1
 };
-
+/*
 $.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 	L.geoJson(mpn_data, {
 		pointToLayer: function (feature, latlng) {
@@ -100,7 +100,7 @@ $.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 	}
 	}).addTo(mymap);
 });
-
+*/
 
 $.getJSON("data/EmbalsesGen.geojson", function(emb_data){
 	L.geoJson(emb_data, {
@@ -113,7 +113,7 @@ $.getJSON("data/EmbalsesGen.geojson", function(emb_data){
 	}).addTo(mymap);
 });
 
-
+/*
 $.getJSON("data/ColoniasPenitenciarias.geojson", function(col_data){
 	L.geoJson(col_data, {
 		pointToLayer: function (feature, latlng) {
@@ -146,7 +146,7 @@ $.getJSON("data/ZonasRiego.geojson", function(zon_data){
 	}
 } ).addTo(mymap);
 });
-
+*/
 var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (mymap) {
