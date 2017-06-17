@@ -17,18 +17,6 @@
     <script src="js/leaflet.ajax.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
 
-    <script src="js/leaflet.timedimension.js"></script>
-    <script src="js/leaflet.timedimension.util.js"></script>
-    <script src="js/leaflet.timedimension.layer.js"></script>
-    <script src="js/leaflet.timedimension.layer.wms.js"></script>
-    <script src="js/leaflet.timedimension.layer.geojson.js"></script>
-    <script src="js/leaflet.timedimension.player.js"></script>
-    <script src="js/leaflet.timedimension.control.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.2/leaflet-omnivore.min.js"></script>
-
-	<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
-
 	<style>
 		#map {
 			width: 100%;
@@ -65,7 +53,7 @@
 	});
 
 	mymap.createPane('zonas');
-	mymap.getPane('zonas').style.zIndex = 250;
+	mymap.getPane('zonas').style.zIndex = 200;
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidXJiYW5vdmlpaSIsImEiOiJjaWxmODU2ODIwMDJ5dmxsejRva3FyaWU0In0.xUle2zZJMfYkhXdZUsrlqQ', {
 		maxZoom: 10,
