@@ -37,12 +37,13 @@
 	var mymap = L.map('map').setView([40.4168, -3.7038], 6);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidXJiYW5vdmlpaSIsImEiOiJjaWxmODU2ODIwMDJ5dmxsejRva3FyaWU0In0.xUle2zZJMfYkhXdZUsrlqQ', {
-		maxZoom: 11,
+		maxZoom: 9,
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		id: 'mapbox.streets'
 	}).addTo(mymap);
+
 var mpn_style = {
     radius: 4,
     fillColor: "#2b8cbe",
@@ -87,6 +88,7 @@ $.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 	}).addTo(mymap);
 });
 
+/*
 $.getJSON("data/Embalses.geojson", function(emb_data){
 	L.geoJson(emb_data, {
 		pointToLayer: function (feature, latlng) {
@@ -110,7 +112,7 @@ $.getJSON("data/pobladoscol.geojson", function(pob_data){
 		}
 	}).addTo(mymap);
 });
-
+*/
 $.getJSON("data/ZonasRiego.geojson", function(zon_data){
 	L.geoJson(zon_data,{
 		style: function(feature){
