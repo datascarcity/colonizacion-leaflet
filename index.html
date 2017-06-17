@@ -195,6 +195,15 @@ legend.onAdd = function (mymap) {
 legend.addTo(mymap);
 
 //timeDimension
+
+// start of TimeDimension manual instantiation
+var timeDimension = new L.TimeDimension({
+        period: "PT5M",
+    });
+// helper to share the timeDimension object between all layers
+map.timeDimension = timeDimension; 
+// otherwise you have to set the 'timeDimension' option on all layers.
+
 var player        = new L.TimeDimension.Player({
     transitionTime: 100, 
     loop: false,
