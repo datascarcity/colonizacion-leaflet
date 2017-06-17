@@ -53,6 +53,8 @@
 
 	mymap.createPane('zonas');
 	mymap.getPane('zonas').style.zIndex = 210;
+	mymap.createPane('puntos');
+	mymap.getPane('puntos').style.zIndex = 410;
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidXJiYW5vdmlpaSIsImEiOiJjaWxmODU2ODIwMDJ5dmxsejRva3FyaWU0In0.xUle2zZJMfYkhXdZUsrlqQ', {
 		maxZoom: 10,
@@ -134,6 +136,7 @@ $.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, mpn_style);
 		},
+		pane: 'puntos',
 		onEachFeature: function (feature, layer){
 		layer.bindPopup( "<strong>Municipio Penal</br> Nombre: </strong>" + feature.properties.NOMBRE + ", (" + feature.properties.PROVINCIA + ")<br/>"  + "<strong> Tipo: </strong>" + feature.properties.TIPO_ENTID + "<br/>" + "<strong> Período: </strong>" + feature.properties.PENALES_10 )
 	}
@@ -146,6 +149,7 @@ $.getJSON("data/EmbalsesGenV3.geojson", function(emb_data){
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, emb_style);
 		},
+		pane: 'puntos',
 		onEachFeature: function (feature, layer){
 		layer.bindPopup( "<strong>Embalse</br> Nombre: </strong>" + feature.properties.Nombre + "</br>" +"<strong> Ubicación: </strong>" + feature.properties.Nombre + " (" + feature.properties.Provincia + ")<br/>"  + "<strong> Río: </strong>" + feature.properties.Rio + "<br/>" + "<strong> Cuenca: </strong>" + feature.properties.Cuenca + "<br/>" + "<strong> Año de construcción: </strong>" + feature.properties.Anyo )
 	}
@@ -159,6 +163,7 @@ $.getJSON("data/ColoniasPenitenciarias.geojson", function(col_data){
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, col_style);
 		},
+		pane: 'puntos',
 		onEachFeature: function (feature, layer){
 		layer.bindPopup( "<strong>Colonia Penitenciaria</br> Agrupación: </strong>" + feature.properties.AGRUPACION + "</br>" +"<strong> Entidad: </strong>" + feature.properties.ENTIDAD + "<br/>"  + "<strong> Municipio: </strong>" + feature.properties.MUNICIPIO + "<br/>")
 	}
@@ -171,6 +176,7 @@ $.getJSON("data/PobladosColonizacion.geojson", function(pob_data){
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, pob_style);
 		},
+		pane: 'puntos',
 		onEachFeature: function (feature, layer){
 		layer.bindPopup( "<strong>Poblado de Colonización</br> Poblado: </strong>" + feature.properties.POBLADO + " (" + feature.properties.PROVINCIA+ ")</br>" + "<strong> Año: </strong>" + feature.properties.ANO + "<br/>")
 	}
