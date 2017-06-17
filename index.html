@@ -25,6 +25,8 @@
     <script src="js/leaflet.timedimension.player.js"></script>
     <script src="js/leaflet.timedimension.control.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.2/leaflet-omnivore.min.js"></script>
+
 	<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
 
 	<style>
@@ -232,6 +234,13 @@ var timeDimensionControlOptions = {
 
 var timeDimensionControl = new L.Control.TimeDimension(timeDimensionControlOptions);
 mymap.addControl(timeDimensionControl);
+
+var kmlLayer = omnivore.kml('data/embalses.kml');
+var kmlTimeLayer = L.timeDimension.layer.geoJson(kmlLayer, {
+    updateTimeDimension: true,
+    addlastPoint: true,
+    waitForReady: true
+});
 
 </script>
 
