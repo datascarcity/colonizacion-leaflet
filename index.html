@@ -30,7 +30,7 @@
 		border-radius: 50%;
 		width: 10px;
 		height: 10px;
-		margin-top: 8px;
+		margin-top: 4px;
 	}
 
 	</style>
@@ -170,8 +170,7 @@ var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (mymap) {
 
 	 var div = L.DomUtil.create('div', 'info legend');
-	 div.innerHTML = '<i class="circle" style= "background:#65A5D1"> </i> Embalses<br> <i style="background:#FF4500"> </i> Poblados de Colonización<br> <i style=background:#BF8130> </i> Colonias Penitenciarias<br> <i style=background:#FF9000> </i> Municipios Penales';
-	 //div.innerHTML = '<i style="background: #e5f5e0>" </i> Poblados de Colonización <br> Colonias Penitenciarias <br> Embalses';
+	 div.innerHTML = '<i class="circle" style= "background:#65A5D1"> </i> Embalses<br> <i class="circle" style="background:#FF4500"> </i> Poblados de Colonización<br> <i class="circle" style=background:#BF8130> </i> Colonias Penitenciarias<br> <i class="circle" style=background:#FF9000> </i> Municipios Penales <i style=background:#00B060> </i> Zonas regables de colonizacion del plan nacional de obras hidraulicas<br><i style=background:#218457> </i> Regados del I.N.C. con aguas superficiales<br><i style=background:#00733E> </i> Regados del I.N.C. con aguas subterraneas';
 	 return div;        
 };
 
