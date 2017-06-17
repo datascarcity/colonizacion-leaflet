@@ -111,13 +111,13 @@ var timeDimensionControl = new L.Control.TimeDimension(timeDimensionControlOptio
 mymap.addControl(timeDimensionControl);
 
 var kmlLayer = omnivore.kml('data/embalsesV1.kml');
-console.log(kmlLayer);
+
 var kmlTimeLayer = L.timeDimension.layer.geoJson(kmlLayer, {
     updateTimeDimension: true,
     addlastPoint: true,
     waitForReady: true
 });
-
+console.log(kmlTimeLayer);
 var overlayMaps = {
     "KML Layer": kmlTimeLayer
 };
