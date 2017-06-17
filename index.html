@@ -140,7 +140,7 @@ mymap.on('zoomend',function(){
 });
 
 //Zonas de Riego
-var riego = new $.getJSON("data/ZonasRiego.geojson", function(zon_data){
+$.getJSON("data/ZonasRiego.geojson", function(zon_data){
 	L.geoJson(zon_data,{
 		style: function(feature){
 		var fillColor,
@@ -159,7 +159,7 @@ var riego = new $.getJSON("data/ZonasRiego.geojson", function(zon_data){
 });
 
 //Municipios Penales
-$.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
+var munipen = new$.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 	L.geoJson(mpn_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, mpn_style);
