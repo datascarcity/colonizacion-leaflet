@@ -62,7 +62,7 @@ var mpn_style = {
 
 //embalses
 var emb_style = {
-    radius: 8,
+    radius: 4,
     fillColor: "#65A5D1", //azul claro
     color: "#000",
     weight: 0,
@@ -90,18 +90,23 @@ var pob_style = {
     fillOpacity: 1
 };
 
-$.getJSON("data/EmbalsesGenV3.geojson", function(emb_data){
-	L.geoJson(emb_data, {
-		pointToLayer: function (feature, latlng) {
-			return L.circleMarker(latlng, emb_style);
-		},
-		onEachFeature: function (feature, layer){
-		layer.bindPopup( "<strong>Embalse</br> Nombre: </strong>" + feature.properties.Nombre + "</br>" +"<strong> Ubicación: </strong>" + feature.properties.Nombre + " (" + feature.properties.Provincia + ")<br/>"  + "<strong> Río: </strong>" + feature.properties.Rio + "<br/>" + "<strong> Cuenca: </strong>" + feature.properties.Cuenca + "<br/>" + "<strong> Año de construcción: </strong>" + feature.properties.Anyo )
+$.getJSON("data/ZonasRiego.geojson", function(zon_data){
+	L.geoJson(zon_data,{
+		style: function(feature){
+		var fillColor,
+			type = feature.properties.Tipo;
+		if (type == "A") fillColor = "#00B060";
+		else if (type == "B") fillColor = "#218457";
+		else if (type == "C") fillColor = "#00733E";
+		else fillColor = "#f7f7f7"; //no data
+		return { color: "#999", weight: 0, fillColor: fillColor, fillOpacity: .6};
+	},
+	onEachFeature: function (feature, layer){
+		layer.bindPopup( "<strong>Zona de Riego</br>Nombre: </strong>" + feature.properties.Nombre + "<br/>" + "<strong> Tipo: </strong>" + feature.properties.D_Tipo + "<br/>" + "<strong> Estado: </strong>" +feature.properties.D_Estado)
 	}
-	}).addTo(mymap);
+} ).addTo(mymap);
 });
 
-/*
 $.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 	L.geoJson(mpn_data, {
 		pointToLayer: function (feature, latlng) {
@@ -113,7 +118,7 @@ $.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 	}).addTo(mymap);
 });
 
-$.getJSON("data/EmbalsesGenV1.geojson", function(emb_data){
+$.getJSON("data/EmbalsesGenV3.geojson", function(emb_data){
 	L.geoJson(emb_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, emb_style);
@@ -141,23 +146,7 @@ $.getJSON("data/PobladosColonizacion.geojson", function(pob_data){
 	}).addTo(mymap);
 });
 
-$.getJSON("data/ZonasRiego.geojson", function(zon_data){
-	L.geoJson(zon_data,{
-		style: function(feature){
-		var fillColor,
-			type = feature.properties.Tipo;
-		if (type == "A") fillColor = "#00B060";
-		else if (type == "B") fillColor = "#218457";
-		else if (type == "C") fillColor = "#00733E";
-		else fillColor = "#f7f7f7"; //no data
-		return { color: "#999", weight: 0, fillColor: fillColor, fillOpacity: .6};
-	},
-	onEachFeature: function (feature, layer){
-		layer.bindPopup( "<strong>Zona de Riego</br>Nombre: </strong>" + feature.properties.Nombre + "<br/>" + "<strong> Tipo: </strong>" + feature.properties.D_Tipo + "<br/>" + "<strong> Estado: </strong>" +feature.properties.D_Estado)
-	}
-} ).addTo(mymap);
-});
-*/
+
 var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (mymap) {
