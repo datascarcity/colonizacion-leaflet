@@ -85,6 +85,7 @@ mymap.once('focus', function() { mymap.scrollWheelZoom.enable(); });
 var timeDimension = new L.TimeDimension({
         period: "P1Y",
     });
+
 // helper to share the timeDimension object between all layers
 map.timeDimension = timeDimension; 
 // otherwise you have to set the 'timeDimension' option on all layers.
@@ -109,7 +110,7 @@ var timeDimensionControlOptions = {
 var timeDimensionControl = new L.Control.TimeDimension(timeDimensionControlOptions);
 mymap.addControl(timeDimensionControl);
 
-var kmlLayer = omnivore.kml('data/embalses.kml');
+var kmlLayer = omnivore.kml('data/embalsesV1.kml');
 var kmlTimeLayer = L.timeDimension.layer.geoJson(kmlLayer, {
     updateTimeDimension: true,
     addlastPoint: true,
