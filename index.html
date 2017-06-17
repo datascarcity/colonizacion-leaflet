@@ -135,7 +135,6 @@ var pob_style = {
 mymap.on('zoomend',function(){
   var currentZoom = mymap.getZoom();
   radius_size = Math.pow(1.27,currentZoom);
-  munipen.setStyle({radius: radius_size});
   console.log(radius_size);	
 });
 
@@ -159,7 +158,7 @@ $.getJSON("data/ZonasRiego.geojson", function(zon_data){
 });
 
 //Municipios Penales
-var munipen = new $.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
+$.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 	L.geoJson(mpn_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, mpn_style);
@@ -210,8 +209,6 @@ $.getJSON("data/PobladosColonizacion.geojson", function(pob_data){
 	}
 	}).addTo(mymap);
 });
-
-console.log(radius_size);
 
 var legend = L.control({position: 'bottomright'});
 
