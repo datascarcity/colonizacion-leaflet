@@ -90,7 +90,7 @@ var pob_style = {
     fillOpacity: 1
 };
 
-$.getJSON("data/EmbalsesGenV2.geojson", function(emb_data){
+$.getJSON("data/EmbalsesGenV3.geojson", function(emb_data){
 	L.geoJson(emb_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, emb_style);
