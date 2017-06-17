@@ -60,10 +60,15 @@
 
 mymap.once('focus', function() { mymap.scrollWheelZoom.enable(); });
 
+var emb_color = "#65A5D1";
+var mpn_color = "#FF9000";
+var col_color = "#BF8130";
+var pob_color = "#FF4500";
+
 //municipios penales
 var mpn_style = {
     radius: 4,
-    fillColor: "#FF9000", //naranja principal
+    fillColor: mpn_color, //naranja principal
     color: "#000",
     weight: 0,
     opacity: 1,
@@ -73,7 +78,7 @@ var mpn_style = {
 //embalses
 var emb_style = {
     radius: 4,
-    fillColor: "#65A5D1", //azul claro
+    fillColor: emb_color, //azul claro
     color: "#000",
     weight: 0,
     opacity: 1,
@@ -83,7 +88,7 @@ var emb_style = {
 //colonias penitenciarias
 var col_style = {
     radius: 4,
-    fillColor: "#BF8130", //naranja obscuro
+    fillColor: col_color, //naranja obscuro
     color: "#000",
     weight: 0,
     opacity: 1,
@@ -93,7 +98,7 @@ var col_style = {
 //poblados de colonización
 var pob_style = {
     radius: 4,
-    fillColor: "#FF4500", //rojo principal
+    fillColor: pob_color, //rojo principal
     color: "#000",
     weight: 0,
     opacity: 1,
