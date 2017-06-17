@@ -117,6 +117,12 @@ var kmlTimeLayer = L.timeDimension.layer.geoJson(kmlLayer, {
     waitForReady: true
 });
 
+var overlayMaps = {
+    "KML Layer": kmlTimeLayer
+};
+
+L.control.layers(overlayMaps).addTo(mymap);
+
 var emb_color = "#7bccc4";
 var mpn_color = "#fdd49e";
 var col_color = "#fdbb84";
