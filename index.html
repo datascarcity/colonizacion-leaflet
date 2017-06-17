@@ -49,7 +49,7 @@
 		mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 
 	var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
-		streets  = L.tileLayer(mbUrl, {id: 'mapbox.satellite-streets', attribution: mbAttr});
+		streets  = L.tileLayer(mbUrl, {id: 'mapbox.satellite', attribution: mbAttr});
 
 	var mymap = L.map('map', {
 		center:[40.4168, -3.7038],
@@ -90,9 +90,11 @@ var mpn_color = "#fdd49e";
 var col_color = "#fdbb84";
 var pob_color = "#fc8d59";
 
+var radius_size = 4;
+
 //municipios penales
 var mpn_style = {
-    radius: 4,
+    radius: radius_size,
     fillColor: mpn_color, //naranja principal
     color: "#FFFFFF",
     weight: 1,
@@ -102,7 +104,7 @@ var mpn_style = {
 
 //embalses
 var emb_style = {
-    radius: 4,
+    radius: radius_size,
     fillColor: emb_color, //azul claro
     color: "#FFFFFF",
     weight: 1,
@@ -112,7 +114,7 @@ var emb_style = {
 
 //colonias penitenciarias
 var col_style = {
-    radius: 4,
+    radius: radius_size,
     fillColor: col_color, //naranja obscuro
     color: "#FFFFFF",
     weight: 1,
@@ -122,13 +124,18 @@ var col_style = {
 
 //poblados de colonización
 var pob_style = {
-    radius: 4,
+    radius: radius_size,
     fillColor: pob_color, //rojo principal
     color: "#FFFFFF",
     weight: 1,
     opacity: 1,
     fillOpacity: 1
 };
+
+mymap.on('zoomend',function(){
+  var currentZoom = map.getZoom();
+  radius_size = currentZoom/1.5;	
+});
 
 //Zonas de Riego
 $.getJSON("data/ZonasRiego.geojson", function(zon_data){
