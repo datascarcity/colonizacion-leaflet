@@ -232,7 +232,7 @@ $.getJSON("data/PobladosColonizacion.geojson", function(pob_data){
 			return L.circleMarker(latlng, pob_style);
 		},
 		onEachFeature: function (feature, layer){
-		layer.bindPopup( "<strong>Poblado de Colonización</br> Poblado: </strong>" + feature.properties.POBLADO + " (" + feature.properties.PROVINCIA+ "<)/br>" + "<strong> Año: </strong>" + feature.properties.ANO + "<br/>")
+		layer.bindPopup( "<strong>Poblado de Colonización</br> Poblado: </strong>" + feature.properties.POBLADO + " (" + feature.properties.PROVINCIA+ ")</br>" + "<strong> Año: </strong>" + feature.properties.ANO + "<br/>")
 	}
 	}).addTo(mymap);
 });
