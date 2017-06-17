@@ -103,8 +103,8 @@ $.getJSON("data/Embalses.geojson", function(emb_data){
 	}).addTo(mymap);
 });
 
-/*
-$.getJSON("data/coloniaspenit.geojson", function(col_data){
+
+$.getJSON("data/ColoniasPenit.geojson", function(col_data){
 	L.geoJson(col_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, col_style);
@@ -112,14 +112,14 @@ $.getJSON("data/coloniaspenit.geojson", function(col_data){
 	}).addTo(mymap);
 });
 
-$.getJSON("data/pobladoscol.geojson", function(pob_data){
+$.getJSON("data/PobladosCol.geojson", function(pob_data){
 	L.geoJson(pob_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, pob_style);
 		}
 	}).addTo(mymap);
 });
-*/
+
 $.getJSON("data/ZonasRiego.geojson", function(zon_data){
 	L.geoJson(zon_data,{
 		style: function(feature){
