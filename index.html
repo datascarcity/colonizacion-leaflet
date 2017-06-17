@@ -159,7 +159,7 @@ $.getJSON("data/ZonasRiego.geojson", function(zon_data){
 });
 
 //Municipios Penales
-var munipen = new$.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
+var munipen = new $.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 	L.geoJson(mpn_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, mpn_style);
