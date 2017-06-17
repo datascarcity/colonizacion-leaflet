@@ -48,6 +48,7 @@
 		center:[40.4168, -3.7038],
 		zoom: 6,
 		scrollWheelZoom: false,
+		dragging: false,
 	});
 
 	mymap.createPane('zonas');
@@ -65,6 +66,7 @@
 	}).addTo(mymap);
 
 mymap.once('focus', function() { mymap.scrollWheelZoom.enable(); });
+mymap.once('focus', function() { mymap.dragging.enable(); });
 
 var emb_color = "#7bccc4";
 var mpn_color = "#fdd49e";
