@@ -36,7 +36,7 @@
 //.setView([40.4168, -3.7038], 6, scrollWheelZoom: false)
 	var mymap = L.map('map', {
 		center:[40.4168, -3.7038],
-		zoom: 7,
+		zoom: 6.5,
 		scrollWheelZoom: false
 	});
 
@@ -90,6 +90,18 @@ var pob_style = {
     fillOpacity: 1
 };
 
+$.getJSON("data/EmbalsesGenV1.geojson", function(emb_data){
+	L.geoJson(emb_data, {
+		pointToLayer: function (feature, latlng) {
+			return L.circleMarker(latlng, emb_style);
+		},
+		onEachFeature: function (feature, layer){
+		layer.bindPopup( "<strong>Embalse</br> Nombre: </strong>" + feature.properties.Nombre + "</br>" +"<strong> Ubicación: </strong>" + feature.properties.Nombre + " (" + feature.properties.Provincia + ")<br/>"  + "<strong> Río: </strong>" + feature.properties.Rio + "<br/>" + "<strong> Cuenca: </strong>" + feature.properties.Cuenca + "<br/>" + "<strong> Año de construcción: </strong>" + feature.properties.Anyo )
+	}
+	}).addTo(mymap);
+});
+
+/*
 $.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 	L.geoJson(mpn_data, {
 		pointToLayer: function (feature, latlng) {
@@ -145,7 +157,7 @@ $.getJSON("data/ZonasRiego.geojson", function(zon_data){
 	}
 } ).addTo(mymap);
 });
-
+*/
 var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (mymap) {
