@@ -43,6 +43,13 @@
 
 <div id='map'></div>
 <script>
+	var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+	var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
+		streets  = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
 
 	var mymap = L.map('map', {
 		center:[40.4168, -3.7038],
@@ -51,12 +58,21 @@
 		dragging: false,
 	});
 
+	var baseLayers = {
+		"Grayscale": grayscale,
+		"Streets": streets
+	};
+
+	L.control.layers(baseLayers).addTo(map);
+
 	mymap.createPane('zonas');
 	mymap.getPane('zonas').style.zIndex = 300;
 
 	mymap.createPane('puntos');
 	mymap.getPane('puntos').style.zIndex = 610;
 
+
+/*
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidXJiYW5vdmlpaSIsImEiOiJjaWxmODU2ODIwMDJ5dmxsejRva3FyaWU0In0.xUle2zZJMfYkhXdZUsrlqQ', {
 		maxZoom: 10,
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -64,7 +80,7 @@
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		id: 'mapbox.streets'
 	}).addTo(mymap);
-
+*/
 mymap.once('focus', function() { mymap.scrollWheelZoom.enable(); });
 mymap.once('focus', function() { mymap.dragging.enable(); });
 
