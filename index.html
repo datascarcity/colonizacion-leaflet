@@ -210,6 +210,8 @@ $.getJSON("data/PobladosColonizacion.geojson", function(pob_data){
 	}).addTo(mymap);
 });
 
+console.log(radius_size);
+
 var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (mymap) {
