@@ -134,7 +134,7 @@ var pob_style = {
 
 mymap.on('zoomend',function(){
   var currentZoom = mymap.getZoom();
-  radius_size = currentZoom/1.5;
+  radius_size = sqrt(currentZoom)*1.8;
   console.log(radius_size);	
 });
 
