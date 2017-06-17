@@ -135,11 +135,12 @@ var pob_style = {
 mymap.on('zoomend',function(){
   var currentZoom = mymap.getZoom();
   radius_size = Math.pow(1.27,currentZoom);
+
   console.log(radius_size);	
 });
 
 //Zonas de Riego
-$.getJSON("data/ZonasRiego.geojson", function(zon_data){
+var riego = new $.getJSON("data/ZonasRiego.geojson", function(zon_data){
 	L.geoJson(zon_data,{
 		style: function(feature){
 		var fillColor,
