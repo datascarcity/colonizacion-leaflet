@@ -95,7 +95,7 @@ $.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 });
 
 
-$.getJSON("data/Embalses.geojson", function(emb_data){
+$.getJSON("data/EmbalsesGen.geojson", function(emb_data){
 	L.geoJson(emb_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, emb_style);
@@ -104,7 +104,7 @@ $.getJSON("data/Embalses.geojson", function(emb_data){
 });
 
 
-$.getJSON("data/ColoniasPenit.geojson", function(col_data){
+$.getJSON("data/ColoniasPenitenciarias.geojson", function(col_data){
 	L.geoJson(col_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, col_style);
@@ -112,7 +112,7 @@ $.getJSON("data/ColoniasPenit.geojson", function(col_data){
 	}).addTo(mymap);
 });
 
-$.getJSON("data/PobladosCol.geojson", function(pob_data){
+$.getJSON("data/PobladosColonizacion.geojson", function(pob_data){
 	L.geoJson(pob_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, pob_style);
