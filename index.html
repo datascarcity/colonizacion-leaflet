@@ -90,7 +90,7 @@ var mpn_color = "#fdd49e";
 var col_color = "#fdbb84";
 var pob_color = "#fc8d59";
 
-var new radius_size = 4;
+var radius_size = 4;
 
 //municipios penales
 var mpn_style = {
@@ -134,7 +134,8 @@ var pob_style = {
 
 mymap.on('zoomend',function(){
   var currentZoom = mymap.getZoom();
-  radius_size = currentZoom/1.5;	
+  radius_size = currentZoom/1.5;
+  console.log(radius_size);	
 });
 
 //Zonas de Riego
