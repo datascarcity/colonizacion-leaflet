@@ -134,7 +134,7 @@ $.getJSON("data/ColoniasPenitenciarias.geojson", function(col_data){
 	L.geoJson(col_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, col_style);
-		}
+		},
 		onEachFeature: function (feature, layer){
 		layer.bindPopup( "<strong>Colonia Penitenciaria</br> Agrupación: </strong>" + feature.properties.AGRUPACION + "</br>" +"<strong> Entidad: </strong>" + feature.properties.ENTIDAD + "<br/>"  + "<strong> Municipio: </strong>" + feature.properties.MUNICIPIO + "<br/>")
 	}
