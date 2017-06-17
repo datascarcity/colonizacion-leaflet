@@ -48,7 +48,7 @@
 		id: 'mapbox.streets'
 	}).addTo(mymap);
 
-map.once('focus', function() { map.scrollWheelZoom.enable(); });
+mymap.once('focus', function() { mymap.scrollWheelZoom.enable(); });
 
 var mpn_style = {
     radius: 4,
