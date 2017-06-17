@@ -195,6 +195,11 @@ legend.onAdd = function (mymap) {
 legend.addTo(mymap);
 
 //timeDimension
+var player        = new L.TimeDimension.Player({
+    transitionTime: 100, 
+    loop: false,
+    startOver:true
+}, timeDimension);
 
 var timeDimensionControlOptions = {
     player:        player,
