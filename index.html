@@ -40,7 +40,7 @@
 		scrollWheelZoom: false
 	});
 
-	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidXJiYW5vdmlpaSIsImEiOiJjaWxmODU2ODIwMDJ5dmxsejRva3FyaWU0In0.xUle2zZJMfYkhXdZUsrlqQ', {
+	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidXJiYW5vdmlpaSIsImEiOiJjaWxmODU2ODIwMDJ5dmxsejRva3FyaWU0In0.xUle2zZJMfYkhXdZUsrlqQ', {
 		maxZoom: 9,
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -50,36 +50,37 @@
 
 mymap.once('focus', function() { mymap.scrollWheelZoom.enable(); });
 
+//municipios penales
 var mpn_style = {
     radius: 4,
-    fillColor: "#2b8cbe",
+    fillColor: "#FF9000", //naranja principal
     color: "#000",
     weight: 0,
     opacity: 1,
     fillOpacity: 1
 };
-
+//embalses
 var emb_style = {
     radius: 4,
-    fillColor: "#2b8cbe",
+    fillColor: "#65A5D1", //azul claro
     color: "#000",
     weight: 0,
     opacity: 1,
     fillOpacity: 1
 };
-
+//colonias penitenciarias
 var col_style = {
     radius: 4,
-    fillColor: "#fdbb84",
+    fillColor: "#BF8130", //naranja obscuro
     color: "#000",
     weight: 0,
     opacity: 1,
     fillOpacity: 1
 };
-
+//poblados de colonización
 var pob_style = {
     radius: 4,
-    fillColor: "#e34a33",
+    fillColor: "#FF4500", //rojo principal
     color: "#000",
     weight: 0,
     opacity: 1,
@@ -125,9 +126,9 @@ $.getJSON("data/ZonasRiego.geojson", function(zon_data){
 		style: function(feature){
 		var fillColor,
 			type = feature.properties.Tipo;
-		if (type == "A") fillColor = "#e5f5e0";
-		else if (type == "B") fillColor = "#a1d99b";
-		else if (type == "C") fillColor = "#31a354";
+		if (type == "A") fillColor = "#00B060";
+		else if (type == "B") fillColor = "#218457";
+		else if (type == "C") fillColor = "#00733E";
 		else fillColor = "#f7f7f7"; //no data
 		return { color: "#999", weight: 0, fillColor: fillColor, fillOpacity: .6};
 	},
