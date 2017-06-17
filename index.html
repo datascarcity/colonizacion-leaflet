@@ -9,10 +9,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin=""/>
-    <link rel="stylesheet" href="css/leaflet.timedimension.control.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
+    
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
     <script src="js/leaflet.ajax.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -53,7 +52,7 @@
 	});
 
 	mymap.createPane('zonas');
-	mymap.getPane('zonas').style.zIndex = 200;
+	mymap.getPane('zonas').style.zIndex = 210;
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidXJiYW5vdmlpaSIsImEiOiJjaWxmODU2ODIwMDJ5dmxsejRva3FyaWU0In0.xUle2zZJMfYkhXdZUsrlqQ', {
 		maxZoom: 10,
