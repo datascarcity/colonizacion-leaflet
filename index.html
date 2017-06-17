@@ -64,10 +64,6 @@
 		scrollWheelZoom: false,
 		timeDimension: true,
 		timedim: true,
-		timeDimensionOptions: {
-			period: "P1Y",
-			timeInterval: "1940-01-01/1960-12-31"
-		},
 	});
 
 	mymap.createPane('zonas');
@@ -82,6 +78,43 @@
 	}).addTo(mymap);
 
 mymap.once('focus', function() { mymap.scrollWheelZoom.enable(); });
+
+//timeDimension
+
+// start of TimeDimension manual instantiation
+var timeDimension = new L.TimeDimension({
+        period: "P1Y",
+    });
+// helper to share the timeDimension object between all layers
+map.timeDimension = timeDimension; 
+// otherwise you have to set the 'timeDimension' option on all layers.
+
+var player        = new L.TimeDimension.Player({
+    transitionTime: 100, 
+    loop: false,
+    startOver:true
+}, timeDimension);
+
+var timeDimensionControlOptions = {
+    player:        player,
+    timeDimension: timeDimension,
+    position:      'bottomleft',
+    autoPlay:      true,
+    minSpeed:      1,
+    speedStep:     0.5,
+    maxSpeed:      15,
+    timeSliderDragUpdate: true
+};
+
+var timeDimensionControl = new L.Control.TimeDimension(timeDimensionControlOptions);
+mymap.addControl(timeDimensionControl);
+
+var kmlLayer = omnivore.kml('data/embalses.kml');
+var kmlTimeLayer = L.timeDimension.layer.geoJson(kmlLayer, {
+    updateTimeDimension: true,
+    addlastPoint: true,
+    waitForReady: true
+});
 
 var emb_color = "#7bccc4";
 var mpn_color = "#fdd49e";
@@ -205,42 +238,6 @@ legend.onAdd = function (mymap) {
 
 legend.addTo(mymap);
 
-//timeDimension
-
-// start of TimeDimension manual instantiation
-var timeDimension = new L.TimeDimension({
-        period: "P1Y",
-    });
-// helper to share the timeDimension object between all layers
-map.timeDimension = timeDimension; 
-// otherwise you have to set the 'timeDimension' option on all layers.
-
-var player        = new L.TimeDimension.Player({
-    transitionTime: 100, 
-    loop: false,
-    startOver:true
-}, timeDimension);
-
-var timeDimensionControlOptions = {
-    player:        player,
-    timeDimension: timeDimension,
-    position:      'bottomleft',
-    autoPlay:      true,
-    minSpeed:      1,
-    speedStep:     0.5,
-    maxSpeed:      15,
-    timeSliderDragUpdate: true
-};
-
-var timeDimensionControl = new L.Control.TimeDimension(timeDimensionControlOptions);
-mymap.addControl(timeDimensionControl);
-
-var kmlLayer = omnivore.kml('data/embalses.kml');
-var kmlTimeLayer = L.timeDimension.layer.geoJson(kmlLayer, {
-    updateTimeDimension: true,
-    addlastPoint: true,
-    waitForReady: true
-});
 
 </script>
 
