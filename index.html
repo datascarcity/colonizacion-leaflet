@@ -60,7 +60,13 @@
 	var mymap = L.map('map', {
 		center:[40.4168, -3.7038],
 		zoom: 6,
-		scrollWheelZoom: false
+		scrollWheelZoom: false,
+		timeDimension: true,
+		timedim: true,
+		timeDimensionOptions: {
+			period: "PT1Y",
+			timeInterval: "1940/1960"
+		},
 	});
 
 	mymap.createPane('zonas');
