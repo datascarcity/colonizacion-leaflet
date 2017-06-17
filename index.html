@@ -36,12 +36,12 @@
 //.setView([40.4168, -3.7038], 6, scrollWheelZoom: false)
 	var mymap = L.map('map', {
 		center:[40.4168, -3.7038],
-		zoom: 6,
+		zoom: 7,
 		scrollWheelZoom: false
 	});
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidXJiYW5vdmlpaSIsImEiOiJjaWxmODU2ODIwMDJ5dmxsejRva3FyaWU0In0.xUle2zZJMfYkhXdZUsrlqQ', {
-		maxZoom: 9,
+		maxZoom: 10,
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -59,6 +59,7 @@ var mpn_style = {
     opacity: 1,
     fillOpacity: 1
 };
+
 //embalses
 var emb_style = {
     radius: 4,
@@ -68,6 +69,7 @@ var emb_style = {
     opacity: 1,
     fillOpacity: 1
 };
+
 //colonias penitenciarias
 var col_style = {
     radius: 4,
@@ -77,6 +79,7 @@ var col_style = {
     opacity: 1,
     fillOpacity: 1
 };
+
 //poblados de colonización
 var pob_style = {
     radius: 4,
@@ -91,7 +94,10 @@ $.getJSON("data/MunicipiosPenales.geojson", function(mpn_data){
 	L.geoJson(mpn_data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, mpn_style);
-		}
+		},
+			onEachFeature: function (feature, layer){
+		layer.bindPopup( "<strong> Nombre: " + feature.properties.NOMBRE + "</strong>, " + "<br/>" + feature.properties.PROVINCIA + "<strong> Tipo: </strong>" + feature.properties.TIPO_ENTID + "<br/>" + "<strong> Años: </strong>" + feature.properties.PENALES_10 )
+	}
 	}).addTo(mymap);
 });
 
